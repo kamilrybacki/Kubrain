@@ -21,7 +21,8 @@ jobs:
         run: |
           pip \
             install \
-              pytest
+              -r \
+                tests/requirements.txt
       -
         name: Run integration tests 🩺
         run: |
@@ -30,3 +31,4 @@ jobs:
               pytest \
                 -c \
                   pytest.ini \
+                tests/
