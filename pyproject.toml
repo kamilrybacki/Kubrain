@@ -13,5 +13,6 @@ version = "0.1.0"
 description = "A framework for deploying local ML models on private K8s clusters"
 license = {file = "LICENSE"}
 dependencies = [
-    "PyYAML==6.0.1"
+    "PyYAML==6.0.1",
+    "pydantic==2.7.0"
 ]
