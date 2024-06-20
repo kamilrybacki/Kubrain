@@ -1,5 +1,4 @@
 name: Code tests
-run-name: Integration and unit tests 🩺
 on: [push, pull_request]
 concurrency:
   group: ${{ github.ref }}-it
