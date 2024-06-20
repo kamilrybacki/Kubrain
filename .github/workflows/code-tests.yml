@@ -21,7 +21,8 @@ jobs:
           pip \
             install \
               -r \
-                tests/requirements.txt
+                tests/requirements.txt \
+              .
       -
         name: Run integration tests 🩺
         run: |
