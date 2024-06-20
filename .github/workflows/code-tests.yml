@@ -30,5 +30,4 @@ jobs:
             -m \
               pytest \
                 -c \
-                  pytest.ini \
-                tests/
+                  pytest.ini
