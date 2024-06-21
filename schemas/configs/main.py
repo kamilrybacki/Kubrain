@@ -1,9 +1,9 @@
 import pydantic
 
-from kubrain.types.data import BaseKubrainDataModel
+from kubrain.types.schema import BaseSchemaModel
 
 
-class GeneralConfig(BaseKubrainDataModel):
+class GeneralConfig(BaseSchemaModel):
     __tag__ = 'GENERAL'
 
     name: str = pydantic.Field(
@@ -11,19 +11,19 @@ class GeneralConfig(BaseKubrainDataModel):
     )
 
 
-class BuildConfig(BaseKubrainDataModel):
+class BuildConfig(BaseSchemaModel):
     __tag__ = 'BUILD'
 
 
-class EngineConfig(BaseKubrainDataModel):
+class EngineConfig(BaseSchemaModel):
     __tag__ = 'ENGINE'
 
 
-class DeployConfig(BaseKubrainDataModel):
+class DeployConfig(BaseSchemaModel):
     __tag__ = 'DEPLOY'
 
 
-class Schema(BaseKubrainDataModel):
+class Schema(BaseSchemaModel):
     __tag__ = 'KUBRAIN'
 
     general: GeneralConfig = pydantic.Field(

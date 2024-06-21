@@ -1,0 +1,19 @@
+version: v1
+name: KubrainConfig
+description: Kubrain configuration
+properties:
+  general:
+    description: General configuration
+    properties:
+      name:
+        type: str
+        description: Project name
+        validator: |
+          if not value:
+            raise ValueError("Project name is required")
+  build:
+    description: Build configuration
+    properties: {}
+  deploy:
+    description: Deploy configuration
+    properties: {}
