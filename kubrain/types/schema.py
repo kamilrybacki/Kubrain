@@ -6,7 +6,9 @@ import pydantic
 
 # pylint: disable=too-few-public-methods
 class BaseSchemaModel(pydantic.BaseModel, abc.ABC):
-    @property
+    __tag__: typing.ClassVar[str]
+
+    @property  # type: ignore
     @abc.abstractmethod
     def __tag__(self) -> str:
         pass
@@ -15,8 +17,3 @@ class BaseSchemaModel(pydantic.BaseModel, abc.ABC):
         'from_attributes': True,
         'populate_by_name': True,
     }
-
-
-class TranspiledSchemaProperty(typing.TypedDict):
-    type: typing.Type[BaseSchemaModel] | None | str
-    value: pydantic.Field

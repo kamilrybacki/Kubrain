@@ -1,10 +1,21 @@
+import os
+import typing
 
-def _construct_config_branch(node: list) -> dict:
-    if not node:
-        return {}
-    return {
-        leaf['name']: _construct_config_branch(
-            leaf.get('properties', [])
-        )
-        for leaf in node
-    }
+import pytest
+import yaml
+
+
+TESTS_ASSETS_PATH = os.path.join(
+    os.path.dirname(__file__),
+    'assets'
+)
+
+
+@pytest.fixture(scope='session')
+def mock_config_file() -> dict[str, typing.Any]:
+    with open(
+        file=os.path.join(TESTS_ASSETS_PATH, 'mock.yaml'),
+        mode='r',
+        encoding='utf-8'
+    ) as schema_file:
+        return yaml.safe_load(schema_file)

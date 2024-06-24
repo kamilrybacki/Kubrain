@@ -37,6 +37,7 @@ def _discover_schemas(directory: str) -> list[type[BaseSchemaModel]]:
                     f'No Schema class found in {schema}'
                 )
                 continue
+
             if not issubclass(schema_class, BaseSchemaModel):
                 KubrainLoggers.VALIDATION(
                     f'Schema {schema} is not a valid schema'
