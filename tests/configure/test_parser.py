@@ -3,7 +3,6 @@ import yaml
 import pytest
 
 import kubrain.configure.parser
-import kubrain.configure.validation
 
 
 @pytest.mark.parametrize(
