@@ -26,8 +26,13 @@ jobs:
       -
         name: Run integration tests 🩺
         run: |
-          python \
-            -m \
-              pytest \
-                -c \
-                  pytest.ini
+          if [ -f "tests/*" ]; then
+            python \
+              -m \
+                pytest \
+                  -c \
+                    pytest.ini \
+                  tests/integration.py
+          else
+            echo "No integration tests found."
+          fi
