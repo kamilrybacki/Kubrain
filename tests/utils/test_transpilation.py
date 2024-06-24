@@ -9,9 +9,9 @@ import kubrain.utils.transpile
 RANDOM_DATA = ''.join(str(random.randint(0, 9)) for _ in range(10))
 
 
-def _create_mock_schema_data(applied_patch: dict) -> dict:
+def _create_mock_schema_data(applied_properties: dict) -> dict:
     data = {}
-    for property_name, property_data in applied_patch.items():
+    for property_name, property_data in applied_properties.items():
         if 'default' in property_data:
             data[property_name] = property_data['default']
         elif 'type' in property_data:
@@ -53,6 +53,7 @@ def test_valid_schema_transpilation(
     transpiled_schema = kubrain.utils.transpile.transpile_schema(
         schema=mock_config_file | patch
     )
-    transpiled_schema_json = transpiled_schema.model_json_schema()
-    mock_schema_test_data = _create_mock_schema_data(patch['properties'])
+    mock_schema_test_data = _create_mock_schema_data(
+        applied_properties=patch['properties']
+    )
     assert transpiled_schema.model_validate(mock_schema_test_data)
