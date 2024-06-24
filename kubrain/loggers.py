@@ -36,7 +36,6 @@ class KubrainLogger(logging.Logger):
 
 
 class KubrainLoggers(enum.Enum):
-    VALIDATION = KubrainLogger('VALIDATION')
     PARSING = KubrainLogger('PARSING')
     MANAGER = KubrainLogger('MANAGER')
 
