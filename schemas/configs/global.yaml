@@ -11,9 +11,9 @@ properties:
         validator: |
           if not value:
             raise ValueError("Project name is required")
-  build:
-    description: Build configuration
-    properties: {}
-  deploy:
-    description: Deploy configuration
-    properties: {}
+  # build:
+  #   description: Build configuration
+  #   properties: {}
+  # deploy:
+  #   description: Deploy configuration
+  #   properties: {}
